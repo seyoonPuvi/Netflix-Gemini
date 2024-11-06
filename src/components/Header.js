@@ -10,7 +10,7 @@ import { removeGptSlice, toggleGPTSearchPage } from "../utils/gptSlice";
 import { language, languageOptions } from "../utils/languageConstants";
 import { setLanguage } from "../utils/configSlice";
 
-const Header = () => {
+const Header = ({ login }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -56,19 +56,39 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-screen absolute bg-gradient-to-b from-black z-50">
-      <div className="ml-8">
+    <div
+      className={`flex-col gap-y-3 md:flex-row flex pt-4 md:justify-between w-screen md:absolute pb-10 md:pb-3 ${
+        gptPage
+          ? "absolute bg-black bg-opacity-80"
+          : login
+          ? "bg-transparent"
+          : "bg-black"
+      } md:bg-transparent z-50`}
+    >
+      <div className="md:ml-8  flex justify-between ">
         <img
           src={website_LOGO_URL}
           alt="netflix-logo"
-          className="w-[200px] h-25  brightness-200"
+          className="w-[100px] md:w-[250px]  h-10 md:h-28  brightness-200 m-0"
         />
+        <div className="flex items-center md:hidden pr-5">
+          {user?.photoURL && (
+            <img
+              src={user?.photoURL}
+              alt="profile-pic"
+              className="w-8 h-8 bg-center bg-cover"
+            />
+          )}
+          <p className="text-white font-bold mx-1">{user?.displayName}</p>
+        </div>
       </div>
 
-      <div className="flex items-center justify-around  w-[32%] mr-8">
+      <div className="flex items-center justify-around md:justify-normal md:gap-x-5 md:mr-8">
         <select
           onChange={handleLanguagePreference}
-          className="bg-gray-900 text-white font-bold px-2 py-2 opacity-90 rounded-md"
+          className={`bg-gray-900 text-white font-bold md:px-2 md:py-2 px-1 py-1 opacity-90 rounded-md ${
+            login ? "absolute top-5 right-2" : null
+          }`}
           value={prefferedLang}
         >
           {languageOptions.map((each) => (
@@ -82,14 +102,14 @@ const Header = () => {
           <>
             <button
               type="button"
-              className="px-2 py-2 rounded-md bg-purple-900 text-white border-none outline-none hover:opacity-60"
+              className="md:px-2 md:py-2 px-1.5 py-1 rounded-md bg-purple-900 text-white border-none outline-none hover:opacity-60"
               onClick={handleGptSearchPage}
             >
               {gptPage
                 ? language.homePage[prefferedLang]
                 : language.gptSearch[prefferedLang]}
             </button>
-            <div className="flex items-center">
+            <div className="md:flex md:items-center hidden ">
               {user?.photoURL && (
                 <img
                   src={user?.photoURL}
@@ -101,7 +121,7 @@ const Header = () => {
             </div>
             <button
               type="button"
-              className=" text-white font-bold cursor-pointer px-2 py-2 bg-red-800 border-none outline-none rounded-md hover:opacity-60"
+              className=" text-white font-bold cursor-pointer md:px-2 md:py-2 px-1.5 py-1 bg-red-800 border-none outline-none rounded-md hover:opacity-60"
               onClick={handleSignOut}
             >
               {language.signOut[prefferedLang]}

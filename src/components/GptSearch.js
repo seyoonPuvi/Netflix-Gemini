@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { model } from "../utils/geminiAi";
 import { API_OPTIONS, movieSuggestion_TMDB_API_URL } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
-import { addMoviesInfo } from "../utils/gptSlice";
+import { useDispatch } from "react-redux";
+import { addMoviesInfo, removeGptMovieSuggestion } from "../utils/gptSlice";
 
 const GptSearch = () => {
   // const gptMovieResults = useSelector((store) => store.gpt?.movieResults);
@@ -43,23 +43,34 @@ const GptSearch = () => {
     );
   };
 
+  const handleClearBtn = () => {
+    dispatch(removeGptMovieSuggestion());
+  };
+
   return (
-    <div className="pt-[8%] w-7/12 m-auto">
+    <div className="md:pt-[8%] pt-[40%] w-[95%] md:w-7/12 m-auto">
       <form
         onSubmit={handleSubmit}
-        className="bg-black w-full py-6 px-4 rounded-lg"
+        className="bg-black w-full py-3 px-2 md:py-6 md:px-4 rounded-lg"
       >
         <input
           ref={gptSearchText}
-          type="text"
+          type="search"
           placeholder="what would you like to watch today?"
-          className="w-9/12 py-4 px-4 rounded-l-md outline-none"
+          className="w-8/12 md:w-9/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg rounded-l-md outline-none"
         />
         <button
           type="submit"
-          className="w-3/12 py-4 px-2 rounded-r-md bg-red-800 text-white"
+          className="w-2/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg font-bold bg-red-800 text-white"
         >
           Search
+        </button>
+        <button
+          type="button"
+          className=" w-2/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg font-bold rounded-r-md text-red-800 bg-white"
+          onClick={handleClearBtn}
+        >
+          Clear
         </button>
       </form>
     </div>

@@ -19,7 +19,7 @@ const MainContainer = () => {
   return (
     <>
       {movieTrailer && (
-        <div>
+        <div className="w-screen">
           <VideoTitle
             title={movieTrailer.title}
             overview={movieTrailer.overview}

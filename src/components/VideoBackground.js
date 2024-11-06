@@ -19,7 +19,7 @@ const VideoBackground = ({ movieId }) => {
   return (
     <>
       {trailer_KEY && (
-        <div className="w-screen relative -top-20 bottom-0 left-0 right-0 -z-50">
+        <div className="w-screen relative  -top-[2px] md:-top-20 md:bottom-0 left-0 md:right-0 -z-30  bg-black md:bg-none">
           <iframe
             className="w-screen aspect-video"
             src={videoSrc}

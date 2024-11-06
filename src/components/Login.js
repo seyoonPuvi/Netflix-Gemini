@@ -73,11 +73,11 @@ const Login = () => {
 
   return (
     <>
-      <div className="bg-loginPageBg h-lvh">
-        <Header />
-        <div className="h-3/4 w-full flex justify-center items-center">
+      <div className="bg-loginPageBg bg-cover h-lvh">
+        <Header login />
+        <div className="h-3/4 w-full  flex justify-center items-center">
           <form
-            className="bg-black  w-[350px] opacity-90 py-10 px-8 text-white rounded-lg"
+            className="bg-black md:w-[450px]  w-[350px] opacity-95 py-10 px-8 text-white rounded-lg"
             onSubmit={(e) => e.preventDefault()}
           >
             <h1 className="text-3xl  font-bold mb-8">
