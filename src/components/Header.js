@@ -1,14 +1,24 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { auth } from "../utils/firebase";
+import { auth } from "../utils/firebaseConfig/firebase";
 import { useNavigate } from "react-router-dom";
-import { addUser, addUserName, removeUser } from "../utils/userSlice";
-import { website_LOGO_URL } from "../utils/constants";
-import { removeMovies } from "../utils/movieSlice";
-import { removeGptSlice, toggleGPTSearchPage } from "../utils/gptSlice";
-import { language, languageOptions } from "../utils/languageConstants";
-import { setLanguage } from "../utils/configSlice";
+import {
+  addUser,
+  addUserName,
+  removeUser,
+} from "../utils/store/slice/userSlice";
+import { website_LOGO_URL } from "../utils/constants/constants";
+import { removeMovies } from "../utils/store/slice/movieSlice";
+import {
+  removeGptSlice,
+  toggleGPTSearchPage,
+} from "../utils/store/slice/gptSlice";
+import {
+  language,
+  languageOptions,
+} from "../utils/constants/languageConstants";
+import { setLanguage } from "../utils/store/slice/configSlice";
 
 const Header = ({ login }) => {
   const navigate = useNavigate();

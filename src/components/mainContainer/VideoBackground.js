@@ -1,7 +1,7 @@
 import React from "react";
-import useTrailerVideoPlaying from "../hooks/useTrailerVideoPlaying";
+import useTrailerVideoPlaying from "../../hooks/useTrailerVideoPlaying";
 import { useDispatch, useSelector } from "react-redux";
-import { setShowBrowsePage } from "../utils/movieSlice";
+import { setShowBrowsePage } from "../../utils/store/slice/movieSlice";
 
 const VideoBackground = ({ movieId }) => {
   const dispatch = useDispatch();

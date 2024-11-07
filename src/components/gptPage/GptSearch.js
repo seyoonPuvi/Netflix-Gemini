@@ -1,8 +1,14 @@
 import React, { useRef } from "react";
-import { model } from "../utils/geminiAi";
-import { API_OPTIONS, movieSuggestion_TMDB_API_URL } from "../utils/constants";
+import { model } from "../../utils/geminiAi/geminiAi";
+import {
+  API_OPTIONS,
+  movieSuggestion_TMDB_API_URL,
+} from "../../utils/constants/constants";
 import { useDispatch } from "react-redux";
-import { addMoviesInfo, removeGptMovieSuggestion } from "../utils/gptSlice";
+import {
+  addMoviesInfo,
+  removeGptMovieSuggestion,
+} from "../../utils/store/slice/gptSlice";
 
 const GptSearch = () => {
   // const gptMovieResults = useSelector((store) => store.gpt?.movieResults);
@@ -12,7 +18,7 @@ const GptSearch = () => {
   const getMoviesTMDB = async (movie) => {
     const data = await fetch(
       movieSuggestion_TMDB_API_URL +
-        `query=${movie}&include_adult=true&language=en-US&page=1`,
+        `query=${movie}&include_adult=false&language=en-US&page=1`,
       API_OPTIONS
     );
     const json = await data.json();

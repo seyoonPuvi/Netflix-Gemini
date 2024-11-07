@@ -1,16 +1,16 @@
 import React, { useState, useRef } from "react";
-import { language } from "../utils/languageConstants";
+import { language } from "../../utils/constants/languageConstants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import Header from "./Header";
-import { checkValidData } from "../utils/validate";
-import { auth } from "../utils/firebase";
-import { profilePic_URL } from "../utils/constants";
+import Header from "../Header";
+import { checkValidData } from "../../utils/validate";
+import { auth } from "../../utils/firebaseConfig/firebase";
+import { profilePic_URL } from "../../utils/constants/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { addUser } from "../../utils/store/slice/userSlice";
 
 const Login = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 import { useDispatch, useSelector } from "react-redux";
-import { setRandomMovie } from "../utils/movieSlice";
+import { setRandomMovie } from "../../utils/store/slice/movieSlice";
 
 const MainContainer = () => {
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import React from "react";
 import { FaPlay, FaInfoCircle } from "react-icons/fa";
-import { language } from "../utils/languageConstants";
+import { language } from "../../utils/constants/languageConstants";
 import { useSelector } from "react-redux";
 
 const VideoTitle = ({ title, overview }) => {
