@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import MovieCard from "./MovieCard";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const MovieList = ({ title, movies }) => {
   const showGPTSearchPage = useSelector(
@@ -16,9 +17,9 @@ const MovieList = ({ title, movies }) => {
     // Define a function to set the slidesToShow based on window width
     const updateSlidesToShow = () => {
       if (window.innerWidth < 768) {
-        setShowMobView(true); // 4 slides on small screens
+        setShowMobView(true);
       } else {
-        setShowMobView(false); // Default to 8 slides on larger screens
+        setShowMobView(false);
       }
     };
 
@@ -42,11 +43,9 @@ const MovieList = ({ title, movies }) => {
     <div className="slider-cont px-6 md:px-12">
       <Slider {...settings}>
         {movies?.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            posterPath={movie.poster_path}
-            title={title}
-          />
+          <Link key={movie.id} to={`/${movie.id}`}>
+            <MovieCard posterPath={movie.poster_path} title={title} />
+          </Link>
         ))}
       </Slider>
     </div>
@@ -54,14 +53,15 @@ const MovieList = ({ title, movies }) => {
 
   const renderGptMovieSuggesstion = () => (
     <div className="md:mx-12 mx-4 flex overflow-x-auto scrollbar-hidden mb-10">
-      <div className="flex gap-x-1 md:gap-x-3">
+      <div className="flex gap-x-2 md:gap-x-3">
         {movies?.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            posterPath={movie.poster_path}
-            title={movie.title} // Ensure you use the correct title variable
-            // Set a fixed width for each MovieCard
-          />
+          <Link key={movie.id} to={`/${movie.id}`}>
+            <MovieCard
+              posterPath={movie.poster_path}
+              title={movie.title} // Ensure you use the correct title variable
+              // Set a fixed width for each MovieCard
+            />
+          </Link>
         ))}
       </div>
     </div>

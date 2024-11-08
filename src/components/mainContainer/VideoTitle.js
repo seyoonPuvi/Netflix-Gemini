@@ -10,7 +10,7 @@ const VideoTitle = ({ title, overview }) => {
   if (!showBrowsePage) return;
 
   return (
-    <div className="w-screen aspect-video flex flex-col md:pt-[20%] pt-20 gap-y-2 pl-4 md:pl-12 mb-40 text-white absolute md:z-40">
+    <div className="w-screen aspect-video flex flex-col md:pt-[20%] pt-32 gap-y-2 pl-4 md:pl-12 mb-40 text-white absolute md:z-40">
       <h1 className="font-bold text-xl md:text-6xl">{title}</h1>
       <h3 className="text-xl w-[40%] pl-2 md:block hidden">{overview}</h3>
       <div className="flex items-center gap-x-5 pl-2">

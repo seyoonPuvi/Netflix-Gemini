@@ -3,11 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../utils/firebaseConfig/firebase";
 import { useNavigate } from "react-router-dom";
-import {
-  addUser,
-  addUserName,
-  removeUser,
-} from "../utils/store/slice/userSlice";
+import { addUser, removeUser } from "../utils/store/slice/userSlice";
 import { website_LOGO_URL } from "../utils/constants/constants";
 import { removeMovies } from "../utils/store/slice/movieSlice";
 import {
@@ -20,7 +16,7 @@ import {
 } from "../utils/constants/languageConstants";
 import { setLanguage } from "../utils/store/slice/configSlice";
 
-const Header = ({ login }) => {
+const Header = ({ login, path }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -37,7 +33,7 @@ const Header = ({ login }) => {
       if (user) {
         const { uid, displayName, email, photoURL } = user.auth.currentUser;
         dispatch(addUser({ uid, displayName, email, photoURL }));
-        navigate("/browse");
+        !path && navigate("/browse");
       } else {
         // User is signed out
         localStorage.removeItem("preferredLanguage");
@@ -48,7 +44,7 @@ const Header = ({ login }) => {
       }
     });
     return () => unsubscribe(); // Clean up the subscription when the component unmounts
-  }, []);
+  }, [dispatch, navigate, path]);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -67,7 +63,7 @@ const Header = ({ login }) => {
 
   return (
     <div
-      className={`flex-col gap-y-3 md:flex-row flex pt-4 md:justify-between w-screen md:absolute pb-10 md:pb-3 ${
+      className={`flex-col pb-4 gap-y-9 md:flex-row flex pt-4 md:justify-between items-center w-screen md:absolute  md:pb-3 ${
         gptPage
           ? "absolute bg-black bg-opacity-80"
           : login
@@ -75,7 +71,7 @@ const Header = ({ login }) => {
           : "bg-black"
       } md:bg-transparent z-50`}
     >
-      <div className="md:ml-8  flex justify-between ">
+      <div className="md:ml-8  flex justify-between w-screen">
         <img
           src={website_LOGO_URL}
           alt="netflix-logo"
@@ -93,10 +89,10 @@ const Header = ({ login }) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-around md:justify-normal md:gap-x-5 md:mr-8">
+      <div className="flex items-center justify-around md:justify-end md:gap-x-5 md:mr-8 w-screen">
         <select
           onChange={handleLanguagePreference}
-          className={`bg-gray-900 text-white font-bold md:px-2 md:py-2 px-1 py-1 opacity-90 rounded-md ${
+          className={`bg-gray-900 text-white  text-[10px] md:text-[16px] font-bold md:px-2 md:py-2 px-1 py-1 opacity-90 rounded-md ${
             login ? "absolute top-5 right-2" : null
           }`}
           value={prefferedLang}
@@ -112,7 +108,7 @@ const Header = ({ login }) => {
           <>
             <button
               type="button"
-              className="md:px-2 md:py-2 px-1.5 py-1 rounded-md bg-purple-900 text-white border-none outline-none hover:opacity-60"
+              className="md:px-2 md:py-2 px-1.5 py-1 text-[10px] md:text-[16px] rounded-md bg-purple-900 text-white border-none outline-none hover:opacity-60"
               onClick={handleGptSearchPage}
             >
               {gptPage
@@ -131,7 +127,7 @@ const Header = ({ login }) => {
             </div>
             <button
               type="button"
-              className=" text-white font-bold cursor-pointer md:px-2 md:py-2 px-1.5 py-1 bg-red-800 border-none outline-none rounded-md hover:opacity-60"
+              className=" text-white text-[10px] md:text-[16px] font-bold cursor-pointer md:px-2 md:py-2 px-1.5 py-1 bg-red-800 border-none outline-none rounded-md hover:opacity-60"
               onClick={handleSignOut}
             >
               {language.signOut[prefferedLang]}

@@ -21,7 +21,7 @@ const SecondaryContainer = () => {
   ];
 
   return (
-    <div className="-m-1 md:-mt-32 bg-black pb-8 md:pb-0">
+    <div className="-mt-[50px] md:-mt-32 bg-black pb-8 md:pb-0">
       {showBrowsePage ? (
         <div className="relative top-0 md:-top-72 pb-10 z-50">
           {categories.map(

@@ -80,7 +80,7 @@ const Login = () => {
             className="bg-black md:w-[450px]  w-[350px] opacity-95 py-10 px-8 text-white rounded-lg"
             onSubmit={(e) => e.preventDefault()}
           >
-            <h1 className="text-3xl  font-bold mb-8">
+            <h1 className="text-[18px] md:text-3xl  font-bold mb-8">
               {isSignIn
                 ? language.signIN[prefferedLang]
                 : language.signUP[prefferedLang]}
@@ -90,25 +90,27 @@ const Login = () => {
                 ref={name}
                 type="text"
                 placeholder={language.fullName[prefferedLang]}
-                className="p-3 my-3 w-full bg-slate-700"
+                className="p-3 my-3 w-full bg-slate-700 text-[16px] md:text-[20px]"
               />
             )}
             <input
               ref={email}
               type="text"
               placeholder={language.email[prefferedLang]}
-              className="p-3 my-3 w-full bg-slate-700"
+              className="p-3 my-3 w-full bg-slate-700 text-[16px] md:text-[20px]"
             />
             <input
               ref={password}
               type="password"
               placeholder={language.password[prefferedLang]}
-              className="p-3 my-3 w-full bg-slate-700"
+              className="p-3 my-3 w-full bg-slate-700 text-[16px] md:text-[20px]"
             />
-            <p className="text-red-600 text-xl">{errorMessage}</p>
+            <p className="text-red-600  text-[16px] md:text-[20px]">
+              {errorMessage}
+            </p>
             <button
               type="button"
-              className="bg-red-800 font-bold text-xl w-full my-6 p-2 rounded-lg"
+              className="bg-red-800 font-bold text-[16px] md:text-[20px] w-full my-6 p-2 rounded-lg"
               onClick={handleButtonClick}
             >
               {isSignIn
@@ -116,7 +118,7 @@ const Login = () => {
                 : language.signUP[prefferedLang]}
             </button>
             <p
-              className="pl-1 cursor-pointer"
+              className="pl-1 cursor-pointer text-[12px] md:text-[20px]"
               onClick={() => {
                 toggleSignIn(!isSignIn);
               }}

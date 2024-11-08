@@ -16,23 +16,21 @@ const VideoBackground = ({ movieId }) => {
     dispatch(setShowBrowsePage(true));
   };
 
-  return (
-    <>
-      {trailer_KEY && (
-        <div className="w-screen relative  -top-[2px] md:-top-20 md:bottom-0 left-0 md:right-0 -z-30  bg-black md:bg-none">
-          <iframe
-            className="w-screen aspect-video"
-            src={videoSrc}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            loading="lazy"
-            onLoad={handleOnLoadVideo}
-          ></iframe>
-        </div>
-      )}
-    </>
+  const renderVideo = () => (
+    <div className="w-screen relative -top-[2px] md:-top-20 md:bottom-0 left-0 md:right-0 -z-30  bg-black md:bg-none">
+      <iframe
+        className="w-screen min-h-80 aspect-video"
+        src={videoSrc}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        loading="lazy"
+        onLoad={handleOnLoadVideo}
+      ></iframe>
+    </div>
   );
+
+  return <>{trailer_KEY && renderVideo()}</>;
 };
 
 export default VideoBackground;

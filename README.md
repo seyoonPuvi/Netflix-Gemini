@@ -1,49 +1,69 @@
-#Netflix GPT
+# Netflix GPT
 
--create-react-app
--installed tailwind css
--configured tailwind.config.js
--routing
--login page
--sign in form
--sign up form
--form validation
--useRef Hook
--firebase setup
--create sign up user account
--created redux store
--created user slice
--implemented sign out
--updated user profile info (name,photo)
--BugFix:sign up user displayName and profile picture update
--BugFix: if the user is not logged it Redirect(browse to login page) and if the user is logged in it redirect (loginpage to browse page)
--unsubscribe the onAuthStateChanged callback when header component is unloaded
--add hardcoded values to the constants file.
--register TMDB API & create app & get access token
--get data from TMDB now playing movies list API
--custom hook for now playing movies
--create movieSlice
--update store with movies data
--planning for mainContainer & secondary container
--fetch data for trailer video
--update store with trailer video data
--embedded the youtube video and make it autoplay and mute and loop
--added tailwind classes to make the main container look awesome
--build secondary component
+- Create React App
+- Configured TailwindCSS
+- Header
+- Routing of App
+- Login Form
+- Sign up Form
+- Form Validation
+- useRef Hook
+- Firebase Setup
+- Deploying our app to production
+- Create SignUp User Account
+- Implement Sign In user Api
+- Created Redux Store with userSlice
+- Implemented Sign out
+- Update Profile
+- BugFix: Sign up user displayName and profile picture update
+- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
+- Unsubscibed to the onAuthStateChanged callback
+- Add hardcoded values to the constants file
+- Regiter TMDB API & create an app & get access token
+- Get Data from TMDB now playing movies list API
+- Custom Hook for Now Playing Movies
+- Create movieSlice
+- Update Store with movies Data
+- Planning for MainContauiner & secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Yotube video and make it autoplay and mute
+- Tailwind Classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- build Movie Card
+- TMDB Image CDN URL
+- Made the Browsre page amazing with Tailwind CSS
+- usePopularMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- (BONUS) Multi-language Feature in our App)
+- Get Open AI Api Key
+- Gpt Search API Call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
 
 # Features
 
-- Login and sign up page
-  -sign in / sign up Form
-  -redirect to Browse page
-
-- Browse(after authentication)
+- Login/Sign Up
+  - Sign In /Sign up Form
+  - redirect to Browse Page
+- Browse (after authentication)
   - Header
-  - main movie
-    - trailer in bg
-    - movie details(title & desc)
-    - MovieSUggestions
-      - moviesList
+  - Main Movie
+    - Tailer in Background
+    - Title & Description
+    - MovieSuggestions
+      - MovieLists \* N
 - NetflixGPT
-  - searchBar
-  - Movie suggesstions
+  - Search Bar
+  - Movie Suggestions
+
+# Project Setup
+
+- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.

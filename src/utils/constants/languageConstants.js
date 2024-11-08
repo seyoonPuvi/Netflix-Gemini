@@ -13,6 +13,13 @@ export const language = {
     telugu: "మీరు ఈ రోజు ఏమి చూడాలనుకుంటున్నారు",
     malayalam: "നിങ്ങൾ ഇന്ന് എന്ത് കാണാൻ ആഗ്രഹിക്കുന്നു",
   },
+  clearBtnText: {
+    en: "Clear",
+    hindi: "साफ करें",
+    tamil: "அழிக்கவும்",
+    telugu: "తుడవండి",
+    malayalam: "ശുദ്ധമാക്കുക",
+  },
 
   signIN: {
     en: "Sign In",

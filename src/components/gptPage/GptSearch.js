@@ -4,21 +4,23 @@ import {
   API_OPTIONS,
   movieSuggestion_TMDB_API_URL,
 } from "../../utils/constants/constants";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addMoviesInfo,
   removeGptMovieSuggestion,
 } from "../../utils/store/slice/gptSlice";
+import { language } from "../../utils/constants/languageConstants";
 
 const GptSearch = () => {
   // const gptMovieResults = useSelector((store) => store.gpt?.movieResults);
   const dispatch = useDispatch();
   const gptSearchText = useRef(null);
+  const prefferedLang = useSelector((store) => store.config?.prefferedLang);
 
   const getMoviesTMDB = async (movie) => {
     const data = await fetch(
       movieSuggestion_TMDB_API_URL +
-        `query=${movie}&include_adult=false&language=en-US&page=1`,
+        `query=${movie}&include_adult=true&language=en-US&page=1`,
       API_OPTIONS
     );
     const json = await data.json();
@@ -54,29 +56,29 @@ const GptSearch = () => {
   };
 
   return (
-    <div className="md:pt-[8%] pt-[40%] w-[95%] md:w-7/12 m-auto">
+    <div className="md:pt-[8%] pt-[45%] w-full md:w-8/12 m-auto">
       <form
         onSubmit={handleSubmit}
-        className="bg-black w-full py-3 px-2 md:py-6 md:px-4 rounded-lg"
+        className="bg-black w-full py-3 px-2 md:py-6 md:px-4 rounded-lg flex"
       >
         <input
           ref={gptSearchText}
           type="search"
-          placeholder="what would you like to watch today?"
-          className="w-8/12 md:w-9/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg rounded-l-md outline-none"
+          placeholder={language.gptInputPlaceholderText[prefferedLang]}
+          className="w-6/12 md:w-8/12 py-2 px-2 md:py-4 md:px-4 text-[10px] md:text-lg rounded-l-md outline-none"
         />
         <button
           type="submit"
-          className="w-2/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg font-bold bg-red-800 text-white"
+          className="w-3/12 md:w-2/12 py-2 px-2 md:py-4 md:px-4 text-[10px] md:text-lg font-bold bg-red-800 text-white"
         >
-          Search
+          {language.searchBtnText[prefferedLang]}
         </button>
         <button
           type="button"
-          className=" w-2/12 py-2 px-2 md:py-4 md:px-4 text-sm md:text-lg font-bold rounded-r-md text-red-800 bg-white"
+          className=" w-3/12 md:w-2/12 py-2 px-2 md:py-4 md:px-4 text-[10px] md:text-l font-bold rounded-r-md text-red-800 bg-white"
           onClick={handleClearBtn}
         >
-          Clear
+          {language.clearBtnText[prefferedLang]}
         </button>
       </form>
     </div>
