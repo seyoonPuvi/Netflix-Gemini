@@ -27,7 +27,7 @@ const Body = () => {
 
   return (
     <div>
-      <RouterProvider router={appRouter} />
+      <RouterProvider router={appRouter} basename="/Netflix-Gemini" />
     </div>
   );
 };

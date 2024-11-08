@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setLoading } from "./movieDetailsSlice";
 
 const gptSlice = createSlice({
   name: "gpt",
