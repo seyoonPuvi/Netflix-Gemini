@@ -18,7 +18,6 @@ const SimilarMovies = ({ movieId }) => {
       `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
       API_OPTIONS
     );
-
     const json = await data.json();
     dispatch(addSimilarMovies(json.results));
   };

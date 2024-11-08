@@ -1,8 +1,7 @@
 import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./loginPage/Login";
 import Browse from "./browsePage/Browse";
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
 import MovieDetails from "./movieDetailsPage/MovieDetails";
 import NotFound from "./NotFound";
 

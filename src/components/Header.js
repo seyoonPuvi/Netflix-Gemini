@@ -15,6 +15,7 @@ import {
   languageOptions,
 } from "../utils/constants/languageConstants";
 import { setLanguage } from "../utils/store/slice/configSlice";
+import { removeMovieDetails } from "../utils/store/slice/movieDetailsSlice";
 
 const Header = ({ login }) => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const Header = ({ login }) => {
         dispatch(removeUser());
         dispatch(removeMovies());
         dispatch(removeGptSlice());
+        dispatch(removeMovieDetails());
         navigate("/");
       }
     });

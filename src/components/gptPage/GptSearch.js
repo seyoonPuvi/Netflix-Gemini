@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addMoviesInfo,
   removeGptMovieSuggestion,
+  setGptLoading,
 } from "../../utils/store/slice/gptSlice";
 import { language } from "../../utils/constants/languageConstants";
 
 const GptSearch = () => {
-  // const gptMovieResults = useSelector((store) => store.gpt?.movieResults);
   const dispatch = useDispatch();
   const gptSearchText = useRef(null);
   const prefferedLang = useSelector((store) => store.config?.prefferedLang);
@@ -29,6 +29,7 @@ const GptSearch = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(setGptLoading(true));
 
     const prompt =
       "Act as a Movie Recommendation system and suggest me some movies  for the query :" +
@@ -47,6 +48,7 @@ const GptSearch = () => {
       addMoviesInfo({
         movieNames: movieSuggestionList,
         movieResults: tmdbResults,
+        isGptLoading: false,
       })
     );
   };
@@ -75,7 +77,7 @@ const GptSearch = () => {
         </button>
         <button
           type="button"
-          className=" w-3/12 md:w-2/12 py-2 px-2 md:py-4 md:px-4 text-[10px] md:text-l font-bold rounded-r-md text-red-800 bg-white"
+          className=" w-3/12 md:w-2/12 py-2 px-2 md:py-4 md:px-4 text-[10px] md:text-lg font-bold rounded-r-md text-red-800 bg-white"
           onClick={handleClearBtn}
         >
           {language.clearBtnText[prefferedLang]}

@@ -19,14 +19,18 @@ const PlayMovie = ({ movieId }) => {
   const getMovieTrailer = async () => {
     const data = await fetch(movie_URL, API_OPTIONS);
     const json = await data.json();
-    const movieTrailer = json.results.find((each) => each.type === "Trailer");
+    const movieTrailer = json.results?.find((each) => each.type === "Trailer");
+    if (!movieTrailer) {
+      dispatch(setLoading(false));
+      return;
+    }
     const trailer = movieTrailer ? movieTrailer : json.results[0];
     dispatch(addMovieTrailer(trailer));
   };
 
   useEffect(() => {
     getMovieTrailer();
-  }, [movieId]);
+  }, [movieId, dispatch]);
 
   return (
     <div className="w-screen  bg-black md:bg-none  relative  md:-top-20 z-20 right-0 left-0">
