@@ -4,6 +4,7 @@ import Browse from "./browsePage/Browse";
 import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import MovieDetails from "./movieDetailsPage/MovieDetails";
+import NotFound from "./NotFound";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -16,8 +17,12 @@ const Body = () => {
       element: <Browse />,
     },
     {
-      path: "/:movieId",
+      path: "/movie/:movieId",
       element: <MovieDetails />,
+    },
+    {
+      path: "*", // This will match all unmatched routes
+      element: <NotFound />,
     },
   ]);
 

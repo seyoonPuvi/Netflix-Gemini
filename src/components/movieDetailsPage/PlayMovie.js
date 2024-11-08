@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { API_OPTIONS, MOVIE_FETCH_URL } from "../../utils/constants/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { addMovieTrailer } from "../../utils/store/slice/movieDetailsSlice";
+import {
+  addMovieTrailer,
+  setLoading,
+} from "../../utils/store/slice/movieDetailsSlice";
 
 const PlayMovie = ({ movieId }) => {
   const dispatch = useDispatch();
@@ -35,6 +38,9 @@ const PlayMovie = ({ movieId }) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           loading="lazy"
+          onLoad={() => {
+            dispatch(setLoading(false));
+          }}
         ></iframe>
       )}
     </div>

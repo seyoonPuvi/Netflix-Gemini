@@ -7,6 +7,7 @@ const movieDetailsSlice = createSlice({
     movieTrailer: null,
     similarMovies: null,
     genre: null,
+    isLoading: null,
   },
   reducers: {
     addAboutMovie: (state, action) => {
@@ -21,12 +22,16 @@ const movieDetailsSlice = createSlice({
     addGenre: (state, action) => {
       state.genre = action.payload;
     },
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
     removeMovieDetails: (state) => {
       return {
         aboutMovie: null,
         movieTrailer: null,
         similarMovies: null,
         genre: null,
+        isLoading: null,
       };
     },
   },
@@ -38,6 +43,7 @@ export const {
   addSimilarMovies,
   addGenre,
   removeMovieDetails,
+  setLoading,
 } = movieDetailsSlice.actions;
 
 export default movieDetailsSlice.reducer;

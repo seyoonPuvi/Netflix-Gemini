@@ -16,7 +16,7 @@ import {
 } from "../utils/constants/languageConstants";
 import { setLanguage } from "../utils/store/slice/configSlice";
 
-const Header = ({ login, path }) => {
+const Header = ({ login }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
@@ -33,7 +33,7 @@ const Header = ({ login, path }) => {
       if (user) {
         const { uid, displayName, email, photoURL } = user.auth.currentUser;
         dispatch(addUser({ uid, displayName, email, photoURL }));
-        !path && navigate("/browse");
+        navigate("/browse");
       } else {
         // User is signed out
         localStorage.removeItem("preferredLanguage");
@@ -44,7 +44,7 @@ const Header = ({ login, path }) => {
       }
     });
     return () => unsubscribe(); // Clean up the subscription when the component unmounts
-  }, [dispatch, navigate, path]);
+  }, [dispatch, navigate]);
 
   const handleSignOut = () => {
     signOut(auth)

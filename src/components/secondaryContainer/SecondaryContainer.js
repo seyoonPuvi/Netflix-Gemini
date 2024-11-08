@@ -25,26 +25,28 @@ const SecondaryContainer = () => {
       {showBrowsePage ? (
         <div className="relative top-0 md:-top-72 pb-10 z-50">
           {categories.map(
-            ({ title, data }) =>
-              data && <MovieList key={title} title={title} movies={data} />
+            ({ title, data }, index) =>
+              data && (
+                <MovieList
+                  key={`${title}-${index}`}
+                  title={title}
+                  movies={data}
+                />
+              )
           )}
         </div>
       ) : (
         <div className="md:hidden h-screen bg-black flex flex-col gap-y-2">
-          {Array(3)
-            .fill()
-            .map((_index) => (
-              <div className="flex justify-center" key={_index}>
-                {Array(3)
-                  .fill()
-                  .map((_, index) => (
-                    <div
-                      key={index}
-                      className="w-3/12 m-2 h-40 bg-gray-950 bg-opacity-75"
-                    ></div>
-                  ))}
-              </div>
-            ))}
+          {Array.from({ length: 3 }).map((_, rowIndex) => (
+            <div className="flex justify-center" key={rowIndex}>
+              {Array.from({ length: 3 }).map((_, colIndex) => (
+                <div
+                  key={colIndex}
+                  className="w-3/12 m-2 h-40 bg-gray-950 bg-opacity-75"
+                ></div>
+              ))}
+            </div>
+          ))}
         </div>
       )}
     </div>

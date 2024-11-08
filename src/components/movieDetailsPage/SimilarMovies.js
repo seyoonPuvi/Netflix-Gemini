@@ -9,6 +9,9 @@ const SimilarMovies = ({ movieId }) => {
   const similarMovies = useSelector(
     (store) => store.movieDetails?.similarMovies
   );
+  const TRAILER_KEY = useSelector(
+    (store) => store.movieDetails?.movieTrailer?.key
+  );
 
   const getSimilarMovies = async () => {
     const data = await fetch(
@@ -26,7 +29,7 @@ const SimilarMovies = ({ movieId }) => {
 
   return (
     <div className="bg-black relative -mt-20 md:-mt-32 z-50 pb-5">
-      {similarMovies && (
+      {similarMovies && TRAILER_KEY && (
         <MovieList title="Similar Movies" movies={similarMovies} />
       )}
     </div>

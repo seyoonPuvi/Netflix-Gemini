@@ -1,19 +1,23 @@
 import { useNavigate, useParams } from "react-router-dom";
-import Header from "../Header";
 import PlayMovie from "./PlayMovie";
 import MovieInfoCard from "./MovieInfoCard";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { removeMovieDetails } from "../../utils/store/slice/movieDetailsSlice";
+import {
+  removeMovieDetails,
+  setLoading,
+} from "../../utils/store/slice/movieDetailsSlice";
 import SimilarMovies from "./SimilarMovies";
 import { website_LOGO_URL } from "../../utils/constants/constants";
 
 const MovieDetails = () => {
   const dispatch = useDispatch();
   const { movieId } = useParams();
+  console.log(movieId);
   const navigate = useNavigate();
 
   useEffect(() => {
+    dispatch(setLoading(true));
     return () => {
       dispatch(removeMovieDetails());
     };

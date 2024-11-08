@@ -6,10 +6,10 @@ import { addAboutMovie } from "../../utils/store/slice/movieDetailsSlice";
 const MovieInfoCard = ({ movieId }) => {
   const dispatch = useDispatch();
   const aboutMovie = useSelector((store) => store.movieDetails?.aboutMovie);
+  const isLoading = useSelector((store) => store.movieDetails?.isLoading);
   const TRAILER_KEY = useSelector(
     (store) => store.movieDetails?.movieTrailer?.key
   );
-  const [isLoading, setLoading] = useState(true);
 
   const getMoviesAbout = async () => {
     const data = await fetch(
@@ -18,7 +18,6 @@ const MovieInfoCard = ({ movieId }) => {
     );
     const json = await data.json();
     dispatch(addAboutMovie(json));
-    setLoading(false);
   };
 
   useEffect(() => {

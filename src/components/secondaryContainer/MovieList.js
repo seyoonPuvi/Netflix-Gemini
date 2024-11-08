@@ -42,8 +42,8 @@ const MovieList = ({ title, movies }) => {
   const renderMovieSlider = () => (
     <div className="slider-cont px-6 md:px-12">
       <Slider {...settings}>
-        {movies?.map((movie) => (
-          <Link key={movie.id} to={`/${movie.id}`}>
+        {movies?.map((movie, index) => (
+          <Link key={`${movie.id}-${index}`} to={`/movie/${movie.id}`}>
             <MovieCard posterPath={movie.poster_path} title={title} />
           </Link>
         ))}
@@ -54,8 +54,8 @@ const MovieList = ({ title, movies }) => {
   const renderGptMovieSuggesstion = () => (
     <div className="md:mx-12 mx-4 flex overflow-x-auto scrollbar-hidden mb-10">
       <div className="flex gap-x-2 md:gap-x-3">
-        {movies?.map((movie) => (
-          <Link key={movie.id} to={`/${movie.id}`}>
+        {movies?.map((movie, index) => (
+          <Link key={`${movie.id}-${index}`} to={`/${movie.id}`}>
             <MovieCard
               posterPath={movie.poster_path}
               title={movie.title} // Ensure you use the correct title variable
