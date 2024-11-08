@@ -1,5 +1,6 @@
 # Netflix GPT
 
+- started
 - Create React App
 - Configured TailwindCSS
 - Header
