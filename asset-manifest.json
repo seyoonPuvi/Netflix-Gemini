@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/NETFLIX-GEMINI/static/css/main.961a115a.css",
-    "main.js": "/NETFLIX-GEMINI/static/js/main.06700ee9.js",
+    "main.css": "/NETFLIX-GEMINI/static/css/main.8b39f4da.css",
+    "main.js": "/NETFLIX-GEMINI/static/js/main.9054db73.js",
     "static/js/453.67699da7.chunk.js": "/NETFLIX-GEMINI/static/js/453.67699da7.chunk.js",
     "static/media/slick.svg": "/NETFLIX-GEMINI/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/NETFLIX-GEMINI/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/NETFLIX-GEMINI/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/NETFLIX-GEMINI/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/NETFLIX-GEMINI/index.html",
-    "main.961a115a.css.map": "/NETFLIX-GEMINI/static/css/main.961a115a.css.map",
-    "main.06700ee9.js.map": "/NETFLIX-GEMINI/static/js/main.06700ee9.js.map",
+    "main.8b39f4da.css.map": "/NETFLIX-GEMINI/static/css/main.8b39f4da.css.map",
+    "main.9054db73.js.map": "/NETFLIX-GEMINI/static/js/main.9054db73.js.map",
     "453.67699da7.chunk.js.map": "/NETFLIX-GEMINI/static/js/453.67699da7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.961a115a.css",
-    "static/js/main.06700ee9.js"
+    "static/css/main.8b39f4da.css",
+    "static/js/main.9054db73.js"
   ]
 }
