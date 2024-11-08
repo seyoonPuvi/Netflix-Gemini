@@ -6,28 +6,19 @@ import MovieDetails from "./movieDetailsPage/MovieDetails";
 import NotFound from "./NotFound";
 
 const Body = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-    {
-      path: "/movie/:movieId",
-      element: <MovieDetails />,
-    },
-    {
-      path: "*", // This will match all unmatched routes
-      element: <NotFound />,
-    },
-  ]);
+  const appRouter = createBrowserRouter(
+    [
+      { path: "/", element: <Login /> },
+      { path: "/browse", element: <Browse /> },
+      { path: "/movie/:movieId", element: <MovieDetails /> },
+      { path: "*", element: <NotFound /> },
+    ],
+    { basename: "/Netflix-Gemini" }
+  );
 
   return (
     <div>
-      <RouterProvider router={appRouter} basename="/Netflix-Gemini" />
+      <RouterProvider router={appRouter} />
     </div>
   );
 };
