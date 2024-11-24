@@ -1,4 +1,4 @@
-# Netflix GPT
+# Netflix GEMINI
 
 - started
 - Create React App
@@ -39,7 +39,7 @@
 - GPT Search Page
 - GPT Search Bar
 - (BONUS) Multi-language Feature in our App)
-- Get Open AI Api Key
+- Get Gemini AI Api Key
 - Gpt Search API Call
 - fetched gptMoviesSuggestions from TMDB
 - created gptSlice added data
@@ -61,10 +61,10 @@
     - Title & Description
     - MovieSuggestions
       - MovieLists \* N
-- NetflixGPT
+- NetflixGEMINI
   - Search Bar
   - Movie Suggestions
 
 # Project Setup
 
-- Before starting the project please add .env file and add TMDB and OPENAI KEY into it.
+- Before starting the project please add .env file and add TMDB and GEMINIAI KEY into it.
