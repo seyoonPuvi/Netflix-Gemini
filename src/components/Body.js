@@ -12,8 +12,8 @@ const Body = () => {
       { path: "/browse", element: <Browse /> },
       { path: "/movie/:movieId", element: <MovieDetails /> },
       { path: "*", element: <NotFound /> },
-    ]
-    // { basename: "/Netflix-Gemini" }
+    ],
+    { basename: "/Netflix-Gemini" }
   );
 
   return (
