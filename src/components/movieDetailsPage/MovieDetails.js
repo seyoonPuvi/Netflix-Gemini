@@ -30,7 +30,7 @@ const MovieDetails = () => {
           <img
             src={website_LOGO_URL}
             alt="netflix-logo"
-            className="w-[100px] md:w-[250px]  h-10 md:h-28  brightness-200 m-0"
+            className="w-[100px] md:w-[150px]  h-10 md:h-20  brightness-200 m-0"
           />
         </div>
 

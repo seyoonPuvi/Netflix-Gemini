@@ -30,9 +30,11 @@ const MovieInfoCard = ({ movieId }) => {
         TRAILER_KEY ? (
           <div className=" px-12 absolute pt-[20%] z-30 md:block hidden w-[40%]">
             <div className="text-white flex flex-col gap-y-4">
-              <h1 className="text-5xl font-bold">{aboutMovie?.title}</h1>
-              <p className="text-2xl">{aboutMovie?.overview}</p>
-              <p className="text-2xl">{aboutMovie?.runtime}mins</p>
+              <h1 className="text-3xl font-bold">{aboutMovie?.title}</h1>
+              <p className="text-2xl md:text-lg">
+                {aboutMovie?.overview.slice(0, 350)}...
+              </p>
+              <p className="text-2xl md:text-lg">{aboutMovie?.runtime}mins</p>
               <div className="flex gap-x-2">
                 {aboutMovie?.genres.map((each) => (
                   <span key={each.id}>{each.name} </span>
@@ -42,7 +44,7 @@ const MovieInfoCard = ({ movieId }) => {
           </div>
         ) : (
           <div className="w-screen bg-black h-screen flex justify-center items-center">
-            <h1 className="text-3xl text-white font-bold">
+            <h1 className="text-3xl md:text-lg text-white font-bold">
               Details of this movie are not found... Please go back and search
               for other movies.
             </h1>

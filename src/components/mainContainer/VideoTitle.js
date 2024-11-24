@@ -10,9 +10,11 @@ const VideoTitle = ({ title, overview }) => {
   if (!showBrowsePage) return;
 
   return (
-    <div className="w-screen aspect-video flex flex-col md:pt-[20%] pt-32 gap-y-2 pl-4 md:pl-12 mb-40 text-white absolute md:z-40">
-      <h1 className="font-bold text-xl md:text-6xl">{title}</h1>
-      <h3 className="text-xl w-[40%] pl-2 md:block hidden">{overview}</h3>
+    <div className="w-screen aspect-video flex flex-col md:pt-[15%] pt-32 gap-y-2 pl-4 md:pl-12 mb-40 text-white absolute md:z-40">
+      <h1 className="font-bold text-xl md:text-3xl">{title}</h1>
+      <h3 className="text-xl md:text-lg w-[40%] pl-1 md:block hidden">
+        {overview.slice(0, 350)}...
+      </h3>
       <div className="flex items-center gap-x-5 pl-2">
         <button className="flex items-center  gap-x-1  py-[5px] px-[10px] md:py-[10px] md:px-[25px] bg-white text-black rounded-lg hover:opacity-60">
           <FaPlay />
